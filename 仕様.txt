@@ -1,0 +1,25 @@
+API仕様書
+
+概要
+    ユーザーがToDoタスクを作成、取得、更新、削除する為のAPI
+
+技術
+    言語：Python 3.11.3
+    フレームワーク：Django
+    データ形式：JSON
+    DB：なし
+    テスト:Django Test Framework
+
+エンドポイント
+    GET　   /api/todos/        一覧取得
+    POST　  /api/todos/        作成
+    GET　   /api/todos/<id>    取得
+    PUT　   /api/todos/<id>    更新
+    DELETE　/api/todos/<id>    削除
+
+データモデル(JSON)
+{
+    "id":1,
+    "task":"〇〇をする",
+    "completed":false
+}
