@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'todo_apiapp', # 作成したアプリ名を追記
+    'rest_framework', # API作成に使用するライブラリを追記
 ]
 
 MIDDLEWARE = [
