@@ -3,7 +3,7 @@ from .models import Todo
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-
+# レスポンス作成を共通化
 def create_response(todo, status):
     response = JsonResponse({
         'id':todo.id,
@@ -13,6 +13,7 @@ def create_response(todo, status):
     }, status=status)
     return response
 
+# 新しいTodoタスクを作成するAPIエンドポイント
 @csrf_exempt
 def create_todo(request):
     if request.method == 'POST':
@@ -24,6 +25,7 @@ def create_todo(request):
         response = create_response(todo, 201)
         return response
 
+# すべてのTodoタスクを取得する
 @csrf_exempt
 def get_all_todos(request):
     if request.method == 'GET':
@@ -32,6 +34,7 @@ def get_all_todos(request):
         response = JsonResponse(todos_list, safe=False, status=200)
         return response
 
+# 特定のIDのTodoタスクを取得するAPIエンドポイント
 @csrf_exempt
 def get_todo(request, id):
     if request.method == 'GET':
@@ -39,6 +42,7 @@ def get_todo(request, id):
         response = create_response(todo, 200)
         return response
 
+# Todoタスクを更新するエンドポイント
 @csrf_exempt
 def update_todo(request, id):
     if request.method == 'PUT':
@@ -51,6 +55,7 @@ def update_todo(request, id):
         response = create_response(todo, 200)
         return response
 
+# Todoタスクを削除するAPIエンドポイント
 @csrf_exempt
 def delete_todo(request, id):
     if request.method == 'DELETE':
