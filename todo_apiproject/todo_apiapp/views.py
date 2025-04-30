@@ -64,3 +64,4 @@ def delete_todo(request, id):
         todo.delete()
         response = JsonResponse({'message':f'id:{id} task:{task} を削除しました。'},status=200, json_dumps_params={'ensure_ascii': False})
         return response
+    
